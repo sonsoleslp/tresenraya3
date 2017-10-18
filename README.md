@@ -4,13 +4,14 @@
 
 1. Instala [node.js](https://nodejs.org/es/download/) y [git](https://git-scm.com/downloads)
 2. Abre un terminal nuevo en tu ordenador y clona ESTE proyecto (`git clone https://github.com/sonsoleslp/react-iweb-boilerplate.git`)
-3. En github.com, crea con tu usario un nuevo repositorio para albergar tu proyecto. Ejemplo https://github.com/alumno/react-iweb
-4. Vuelve al terminal y cambia la remote URL por la del repo que has creado. Ejemplo `git remote set-url origin git@github.com:alumno/react-iweb.git`
-5. Ejecuta el comando `npm install`. Se instalarán todas las dependencias del proyecto en una nueva carpeta `node_modules`
-6. Arranca el servidor de desarrollo con `npm start`
-7. Si no se abre automáticamente, abre el navegador en la URL [http://localhost:8080](http://localhost:8080)
-8. Cuando acabes de desarrollar cierra el servidor con `Control + C`.
-9. Sube tus cambios a tu repositorio con `git add .` , `git commit -m "First commit"`, `git push origin master`.
+3. Se ha creado un nuevo directorio (`react-iweb-boilerplate`): accede a él(`cd react-iweb-boilerplate`)
+4. En github.com, crea con tu usario un nuevo repositorio para albergar tu proyecto. Ejemplo https://github.com/alumno/react-iweb
+5. Vuelve al terminal y cambia la remote URL por la del repo que has creado. Ejemplo `git remote set-url origin http://github.com/alumno/react-iweb.git`
+6. Ejecuta el comando `npm install`. Se instalarán todas las dependencias del proyecto en una nueva carpeta `node_modules`
+7. Arranca el servidor de desarrollo con `npm start`
+8. Si no se abre automáticamente, abre el navegador en la URL [http://localhost:8080](http://localhost:8080)
+9. Cuando acabes de desarrollar detén el servidor con `Control + C`.
+10. Sube tus cambios a tu repositorio con `git add .` , `git commit -m "First commit"`, `git push origin master`.
 
 
 ## Comandos disponibles
