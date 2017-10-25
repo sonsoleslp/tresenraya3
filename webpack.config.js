@@ -12,8 +12,7 @@ const config = {
     'react-hot-loader/patch',
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
-    './main.js',
-    './assets/scss/main.scss',
+    './main.js'
   ],
 
   output: {
@@ -26,18 +25,18 @@ const config = {
 
   devServer: {
     hot: true,
-    contentBase: resolve(__dirname, 'build'),
+    contentBase: resolve(__dirname, 'app'),
     publicPath: '/'
   },
 
   module: {
     rules: [
-      {
-        enforce: "pre",
-        test: /\.(es6|jsx|js)$/,
-        exclude: /node_modules/,
-        loader: "eslint-loader"
-      },
+      // {
+      //   enforce: "pre",
+      //   test: /\.(es6|jsx|js)$/,
+      //   exclude: /node_modules/,
+      //   loader: "eslint-loader"
+      // },
       {
         test: /\.es6$/,
         exclude: /(node_modules|bower_components)/,
@@ -67,21 +66,20 @@ const config = {
         exclude: /node_modules/,
       },
       {
-        test: /\.scss$/,
-        exclude: /node_modules/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
+          test: /\.css$/,
           use: [
-            'css-loader',
-            {
-              loader: 'sass-loader',
-              query: {
-                sourceMap: false,
-              },
-            },
+              "style-loader",
+              "css-loader",
           ],
-          publicPath: '../'
-        }),
+      },
+      {
+          test: /\.(scss|sass)$/,
+          exclude: /(node_modules|bower_components)/,
+          use: [
+              'style-loader',
+              'css-loader',
+              { loader: 'sass-loader', options: { sourceMap: true } },
+          ],
       },
       { test: /\.(png|jpg|gif)$/, use: 'url-loader?limit=15000&name=images/[name].[ext]' },
       { test: /\.eot(\?v=\d+.\d+.\d+)?$/, use: 'file-loader?&name=fonts/[name].[ext]' },
@@ -96,7 +94,7 @@ const config = {
     },
 
   plugins: [
-    new webpack.LoaderOptionsPlugin({
+    /* new webpack.LoaderOptionsPlugin({
       test: /\.js$/,
       options: {
         eslint: {
@@ -104,9 +102,8 @@ const config = {
           cache: false,
         }
       },
-    }),
+    }),*/
     new webpack.optimize.ModuleConcatenationPlugin(),
-    new ExtractTextPlugin({ filename: './styles/style.css', disable: false, allChunks: true }),
     new CopyWebpackPlugin([{ from: 'vendors', to: 'vendors' }]),
     new OpenBrowserPlugin({ url: 'http://localhost:8080' }),
     new webpack.HotModuleReplacementPlugin(),

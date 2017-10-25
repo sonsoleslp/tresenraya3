@@ -42,12 +42,12 @@ const config = {
 
   module: {
     loaders: [
-      {
+      /* {
         enforce: "pre",
         test: /\.(es6|jsx|js)$/,
         exclude: /node_modules/,
         loader: "eslint-loader"
-      },
+      }, */
       {
         test: /\.es6$/,
         exclude: /(node_modules|bower_components)/,
@@ -70,16 +70,20 @@ const config = {
         },
       },
       {
-        test: /\.scss$/,
-        exclude: /node_modules/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
+          test: /\.css$/,
           use: [
-            'css-loader',
-            { loader: 'sass-loader', query: { sourceMap: false } },
+              "style-loader",
+              "css-loader",
           ],
-          publicPath: '../'
-        }),
+      },
+      {
+          test: /\.(scss|sass)$/,
+          exclude: /(node_modules|bower_components)/,
+          use: [
+              'style-loader',
+              'css-loader',
+              { loader: 'sass-loader', options: { sourceMap: true } },
+          ],
       },
       { test: /\.(png|jpg|gif)$/, use: 'url-loader?limit=15000&name=images/[name].[ext]' },
       { test: /\.eot(\?v=\d+.\d+.\d+)?$/, use: 'file-loader?name=fonts/[name].[ext]' },

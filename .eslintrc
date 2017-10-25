@@ -153,9 +153,6 @@
     "max-statements": 0,
     "no-bitwise": 1,
 
-
-    "babel/object-curly-spacing": [1, "always"],
-
     /* React */
     "react/jsx-boolean-value": 1,
     "react/jsx-no-duplicate-props": 1,
